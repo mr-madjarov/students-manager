@@ -10,4 +10,11 @@ class Student extends Model
 {
 
 
+
+    public function listStudents(){
+        $model = strtolower($this->_model);
+        return $this->selectAll();
+    }
+
+
 }
