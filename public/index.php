@@ -18,7 +18,7 @@ define('ROOT', dirname(dirname(__FILE__)));
 if(isset($_GET['url'])){
     $url = $_GET['url'];
 }else{
-    $url="/students";
+    $url="students/index";
 }
 
 require_once(ROOT . DS . 'library' . DS . 'bootstrap.php');
