@@ -11,5 +11,6 @@ class Activities_student extends Model
     public $id;
     public $student_id;
     public $activity_id;
+    public $created_at;
 
 }
