@@ -3,13 +3,13 @@
 /**
  * Project: students-manager
  * User: mrmad
- * Date: 10.1.2016 г.
- * Time: 22:27
+ * Date: 16.1.2016 г.
+ * Time: 20:42
  */
-class Category extends Model {
-
+class Activity extends Model
+{
     public $id;
-    public $parent_id;
     public $name;
+    public $point;
 
 }
