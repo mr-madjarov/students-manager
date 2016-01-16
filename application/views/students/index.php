@@ -8,7 +8,7 @@
 ?>
 <h2><?php echo "Students Manager Index" ?></h2>
 
-<a  href="./index.php?url=students/view">Add students</a>
+<a  href="./index.php?url=students/add">Add students</a>
     <table border="1">
         <tr>
             <th>First name </th>
@@ -22,8 +22,8 @@
 foreach($students as $key => $value){
     extract($value["Student"]);
     echo "<tr>".
-            "<td>".$firstName."</td>
-             <td>".$lastName."</td>
+            "<td>".$first_name."</td>
+             <td>".$last_name."</td>
              <td>".$f_number."</td>
         </tr>";
 
