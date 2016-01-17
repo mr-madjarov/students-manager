@@ -60,7 +60,7 @@ class SQLQuery
 
     function select($id)
     {
-        $query = 'SELECT * FROM `' . $this->_table . '` WHERE `id` = \'' . mysql_real_escape_string($id) . '\'';
+        $query = 'SELECT * FROM `' . $this->_table . '` WHERE `id` = \'' . mysqli_real_escape_string($this->_dbHandle,$id) . '\'';
         return $this->query($query, 1);
     }
 
@@ -71,7 +71,7 @@ class SQLQuery
     {
 
         //$query = mysqli_real_escape_string($this->_dbHandle,$query);
-
+        //var_dump($query);
         $this->_result = mysqli_query($this->_dbHandle, $query);
 
 
@@ -81,6 +81,7 @@ class SQLQuery
             $field = array();
             $tempResults = array();
             $numOfFields = mysqli_num_fields($this->_result);
+
             for ($i = 0; $i < $numOfFields; ++$i) {
 
                 $table_name = mysqli_fetch_field_direct($this->_result, $i);
@@ -94,6 +95,8 @@ class SQLQuery
 
 
             while ($row = mysqli_fetch_row($this->_result)) {
+
+
                 for ($i = 0; $i < $numOfFields; ++$i) {
                     $table[$i] = trim(ucfirst($table[$i]), "s");
                     $tempResults[$table[$i]][$field[$i]] = $row[$i];
@@ -103,18 +106,21 @@ class SQLQuery
                     return $tempResults;
                 }
                 array_push($result, $tempResults);
+
             }
             mysqli_free_result($this->_result);
+
             return ($result);
         }
 
 
     }
 
+
     /** Get number of rows **/
     function getNumRows()
     {
-        return mysql_num_rows($this->_result);
+        return mysqli_num_rows($this->_result);
     }
 
     /** Free resources allocated by a query **/
@@ -135,7 +141,7 @@ class SQLQuery
 
     function where($field, $value)
     {
-        $this->_extraConditions .= '`' . $this->_model . '`.`' . $field . '` = \'' . mysqli_real_escape_string($this->_dbHandle, $value) . '\' AND ';
+       return $this->_extraConditions .= '`' . $this->_model . '`.`' . $field . '` = \'' . mysqli_real_escape_string($this->_dbHandle, $value) . '\' AND ';
     }
 
     function like($field, $value)

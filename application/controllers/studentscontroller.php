@@ -42,6 +42,23 @@ class StudentsController extends Controller
         $this->set('students', $this->loadModel()->selectAll());
     }
 
+    function view($id){
+
+        $model = new Student();
+        $act = new Activities_student();
+        $student = $model->select($id);
+
+        $act->where("id",$id);
+
+
+        $activity = $act->query("SELECT point from activitys
+                                 LEFT JOIN activities_students ON activitys.id = activities_students.activity_id
+                                 WHERE student_id = $id");
+
+        $this->set('student', $student);
+        $this->set('info', $activity);
+    }
+
     public function loadModel()
     {
         $model = new $this->_model;
