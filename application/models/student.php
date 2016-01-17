@@ -12,6 +12,9 @@ class Student extends Model
     public $first_name;
     public $last_name;
     public $f_number;
+    public $group;
+    public $flow;
+    public $alumni;
 
 
     public function listStudents(){

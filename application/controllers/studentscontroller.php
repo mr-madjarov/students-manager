@@ -21,10 +21,16 @@ class StudentsController extends Controller
             $first_name = $student['first_name'];
             $last_name = $student['last_name'];
             $f_number = $student['f_number'];
+            $group = $student['group'];
+            $flow = $student['flow'];
+            $alumni = $student['alumni'];
 
             $model->first_name = $first_name;
             $model->last_name = $last_name;
             $model->f_number = $f_number;
+            $model->group = $group;
+            $model->flow = $flow;
+            $model->alumni = $alumni;
             if ($model->save()) {
                 header('Location: ' . 'index.php?url=students/index');
                 die();
