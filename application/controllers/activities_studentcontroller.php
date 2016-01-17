@@ -12,6 +12,17 @@ class Activities_studentController extends Controller
     {
         $model = new Activities_student();
 
+        $students = new Student();
+        $listStudents = $students->selectAll();
+        $getStudents = array_column($listStudents,'Student');
+
+        $activity = new Activity();
+        $listActivities = $activity->selectAll();
+        $getActivities = array_column($listActivities, 'Activity');
+
+
+        $this->set('getStudents', $getStudents );
+        $this->set('getActivities', $getActivities );
 
         if (isset($_POST['info']) and $_POST['info']['student_id'] != '' and $_POST['info']['activity_id'] != '') {
             $activity = $_POST['info'];
