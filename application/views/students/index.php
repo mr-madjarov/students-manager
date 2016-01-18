@@ -14,6 +14,7 @@
             <th>First name </th>
             <th>Last Name</th>
             <th>Faculty number</th>
+            <th>Subject</th>
             <th>Group</th>
             <th>Flow</th>
             <th>Class of</th>
@@ -29,6 +30,7 @@ foreach($students as $key => $value){
             "<td> <a href='index.php?url=students/view/$id'>".$first_name."</a></td>
              <td>".$last_name."</td>
              <td>".$f_number."</td>
+             <td>".$subject."</td>
              <td>".$group."</td>
              <td>".$flow."</td>
              <td>".$alumni."</td>

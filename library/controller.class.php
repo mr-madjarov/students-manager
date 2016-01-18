@@ -20,12 +20,18 @@ class Controller
     protected $_action;
     protected $_template;
 
+    public $doNotRenderHeader;
+    public $render;
+
     function __construct($model, $controller, $action)
     {
 
         $this->_controller = $controller;
         $this->_action = $action;
         $this->_model = $model;
+
+        $this->doNotRenderHeader = 0;
+        $this->render = 1;
 
         $this->$model = new $model;
         $this->_template = new Template($controller, $action);
@@ -39,6 +45,8 @@ class Controller
 
     function __destruct()
     {
-        $this->_template->render();
+        if ($this->render) {
+            $this->_template->render($this->doNotRenderHeader);
+        }
     }
 }

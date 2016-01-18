@@ -15,6 +15,7 @@ class Student extends Model
     public $group;
     public $flow;
     public $alumni;
+    public $subject;
 
 
     public function listStudents(){

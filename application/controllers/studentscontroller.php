@@ -24,6 +24,7 @@ class StudentsController extends Controller
             $group = $student['group'];
             $flow = $student['flow'];
             $alumni = $student['alumni'];
+            $subject  = $student['subject'];
 
             $model->first_name = $first_name;
             $model->last_name = $last_name;
@@ -31,6 +32,7 @@ class StudentsController extends Controller
             $model->group = $group;
             $model->flow = $flow;
             $model->alumni = $alumni;
+            $model->subject = $subject;
             if ($model->save()) {
                 header('Location: ' . 'index.php?url=students/index');
                 die();
