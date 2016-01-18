@@ -9,8 +9,8 @@
 define('DEVELOPMENT_ENVIRONMENT', true);
 
 define('DB_NAME','mydb');
-define('DB_USER','madjarov');
-define('DB_PASSWORD', 'mrmadjarov');
+define('DB_USER','anelia');
+define('DB_PASSWORD', 'anelia123');
 define('DB_HOST', 'localhost');
 
 define('BASE_PATH', 'http://localhost/students-manager');
