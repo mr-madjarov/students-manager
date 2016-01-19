@@ -18,8 +18,10 @@ body {
 #header {
 	display:block;
 	width:100%;
-	height:200px;
+	height:140px;
 	padding:20px;
+	box-sizing:border-box;
+	background:#444;
 }
 div#mainWrapper {
 	width:1200px;
@@ -42,8 +44,17 @@ div#mainWrapper {
 #menubar {
 	float:left;
 	margin-left:30px;
+	padding-top:40px;
 }
 #menubar li {
 	display:inline-block;
 	list-style-type:none;
+	padding-left:15px;
+	padding-right:15px;
+}
+#menubar li a {
+	color:#fff;
+	font-size:16px;
+	text-decoration:none;
+	font-family: 'Playfair Display', serif;
 }
