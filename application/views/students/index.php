@@ -8,7 +8,7 @@
 ?>
 <h2><?php echo "Students Manager Index" ?></h2>
 
-<a  href="./index.php?url=students/add">Add student</a>
+<a  href="./index.php?url=students/add" class="addbutt">Add student</a>
     <table border="1">
         <tr>
             <th>First name </th>

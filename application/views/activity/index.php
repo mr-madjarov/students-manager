@@ -6,7 +6,7 @@
  * Time: 1:47
  */
 ?>
-    <a href="./index.php?url=activity/add">Add activity</a>
+    <a href="./index.php?url=activity/add" class="addbutt">Add activity</a>
 
     <table border="1">
         <tr>
