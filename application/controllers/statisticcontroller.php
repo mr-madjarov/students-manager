@@ -23,25 +23,96 @@ class StatisticController extends Controller
     function bestNow()
     {
         $this->doNotRenderHeader = 1;
-        $st_activity = new Activities_student();
+        $st_activity = new Statistic();
 
-        $students = $st_activity->query("SELECT  first_name,last_name, f_number, `group`,  sum(point) point  FROM activities_students
+        $students = $st_activity->query("SELECT  first_name,last_name, f_number, `group`,flow,subject,alumni,  sum(point) point  FROM activities_students
 LEFT JOIN activitys   ON activities_students.activity_id = activitys.id
 LEFT JOIN students   ON activities_students.student_id = students.id
 GROUP BY student_id
-ORDER BY point DESC");
-
+ORDER BY point DESC
+LIMIT 1");
+        $student = array_shift($students);
         $result = array();
-        foreach ($students as $key => $student) {
-            $st = $student['Student']['first_name'] . " " . $student['Student']['last_name'];
-            $pt = $student['']['point'];
-            array_push($result, array($st => $pt));
-        }
-        $best = max($result);
-        $key = array_keys($best);
-        $points = $best[$key[0]];
+
+        $ime = $student['Student']['first_name'] . " " . $student['Student']['last_name'];
+        $group = $student['Student']['group'];
+        $flow = $student['Student']['flow'];
+        $subject = $student['Student']['subject'];
+        $alumni = $student['Student']['alumni'];
+        $f_number = $student['Student']['f_number'];
+        $pt = $student['']['point'];
+        array_push($result, array('fn' => $f_number,
+            'group' => $group,
+            'flow' => $flow,
+            'subject' => $subject,
+            'alumni' => $alumni,
+            'points' => array(
+                $ime => $pt,
+            )
+        ));
+
+
+        $best = max(array_column($result, 'points'));
+        $names = array_keys($best);
+        $points = $best[$names[0]];
+
+        $analiz_group = $this->getStatFor('group', $group);
+        $min_g = end($analiz_group);
+        $min_in_group = $min_g['']['point'];
+        $average_in_group = $this->getAverage($analiz_group);
+
+
+
+
+        $analiz_flow = $this->getStatFor('flow', $flow);
+        $min_f = end($analiz_flow);
+        $min_in_flow = $min_g['']['point'];
+        $average_in_flow = $this->getAverage($analiz_flow);
+
+        $analiz_subject = $this->getStatFor('subject', $subject);
+        $min_s = end($analiz_subject);
+        $min_in_subject = $min_g['']['point'];
+        $average_in_subject = $this->getAverage($analiz_subject);
+
+        $analiz_alumni = $this->getStatFor('alumni', $alumni);
+        $min_a = end($analiz_alumni);
+        $min_in_alumni = $min_g['']['point'];
+        $average_in_alumni = $this->getAverage($analiz_alumni);
+
+
         echo "<br>";
-        echo $key[0] . " - " . $points . " points.";
+        echo "Best student is: <b> ";
+        echo $names[0] . " - " . $points . " points. </b>";
+        echo "<div class='statistics'>";
+            echo "<div class='row'>";
+                echo"Average  points for  group ".$group. " is:  " .round($average_in_group,2);
+            echo "</div>";
+            echo "<div class='row'>";
+                 echo"Average  points for  flow ".$flow. " is:  " .round($average_in_flow,2);
+            echo "</div>";
+            echo "<div class='row'>";
+                echo"Average  points for ".$subject. " is:  " .round($average_in_subject,2);
+            echo "</div>";
+            echo "<div class='row'>";
+                 echo"Average  points for  class of  ".$alumni. " is:  " .round($average_in_alumni,2);
+            echo "</div>";
+
+
+
+        echo "<div class='row'>";
+        echo"Min  points for  group ".$group. " is:  " .round($min_in_group,2);
+        echo "</div>";
+        echo "<div class='row'>";
+        echo"Min  points for  flow ".$flow. " is:  " .round($min_in_flow,2);
+        echo "</div>";
+        echo "<div class='row'>";
+        echo"Min  points for ".$subject. " is:  " .round($min_in_subject,2);
+        echo "</div>";
+        echo "<div class='row'>";
+        echo"Min  points for  class of  ".$alumni. " is:  " .round($min_in_alumni,2);
+        echo "</div>";
+        echo "<div class='row'>";
+
     }
 
     function bestLastHour()
@@ -163,5 +234,28 @@ ORDER BY point DESC");
         $info = $model->query("SELECT DISTINCT `$section` FROM students
 WHERE flow = $flow AND  alumni = $alumni AND students.subject = '" . $subject . "'");
 
+    }
+
+    private function getStatFor($field, $value)
+    {
+        $request = new Statistic();
+        return $request->query("SELECT   sum(point) point  FROM activities_students
+  LEFT JOIN activitys   ON activities_students.activity_id = activitys.id
+  LEFT JOIN students   ON activities_students.student_id = students.id
+  where `$field` = '$value'
+GROUP BY student_id
+ORDER BY point DESC");
+    }
+    private function getAverage($array)
+    {
+        $i = 0;
+        $sum = 0;
+        foreach ($array as $item) {
+            $i++;
+            $sum += $item['']['point'];
+
+
+        }
+        return $sum / $i;
     }
 }
