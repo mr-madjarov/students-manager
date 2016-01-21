@@ -6,6 +6,7 @@
  * Time: 0:52
  */
 ?>
+<div class="mainContent">
 <h2><?php echo "Students Manager Index" ?></h2>
 
 <a  href="./index.php?url=students/add" class="addbutt">Add student</a>
@@ -40,3 +41,4 @@ foreach($students as $key => $value){
 }
 
 echo "</table>";
+echo "</div>";

@@ -6,8 +6,10 @@
  * Time: 1:44
  */
 ?>
-    <a href="./index.php?url=category/add">Add category</a>
-
+<div class="mainContent">
+<div class="butt">
+    <a href="./index.php?url=category/add" class="addbutt">Add category</a>
+</div>
     <table border="1">
         <tr>
             <th> Name</th>
@@ -29,3 +31,4 @@ foreach ($categories as $key => $value) {
 }
 
 echo "</table>";
+echo "</div>";

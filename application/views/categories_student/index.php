@@ -6,8 +6,10 @@
  * Time: 1:44
  */
 ?>
-    <a href="./index.php?url=categories_student/add">Add category</a>
-
+<div class="mainContent">
+<div class="butt">
+    <a href="./index.php?url=categories_student/add" class="addbutt">Add category</a>
+</div>
     <table border="1">
         <tr>
             <th> Student_id</th>
@@ -28,3 +30,4 @@ if (isset($info)) {
     }
 }
 echo "</table>";
+echo "</div>";

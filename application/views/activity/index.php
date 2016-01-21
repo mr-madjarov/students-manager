@@ -6,8 +6,10 @@
  * Time: 1:47
  */
 ?>
+<div class="mainContent">
+<div class="butt">
     <a href="./index.php?url=activity/add" class="addbutt">Add activity</a>
-
+</div>
     <table border="1">
         <tr>
             <th> Name</th>
@@ -26,3 +28,4 @@ foreach ($activities as $key => $value) {
           </tr>";
 }
 echo "</table>";
+echo "</div>";

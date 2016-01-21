@@ -6,6 +6,7 @@
  * Time: 1:44
  */
 ?>
+<div class="mainContent">
     <a href="./index.php?url=activities_student/add" class="addbutt">Add student activity</a>
 
     <table border="1">
@@ -15,7 +16,6 @@
             <th> Added at</th>
 
         </tr>
-
 
 <?php
 
@@ -30,3 +30,4 @@ if (isset($info)) {
     }
 }
 echo "</table>";
+echo "</div>";

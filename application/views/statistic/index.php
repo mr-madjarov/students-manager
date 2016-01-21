@@ -31,7 +31,7 @@
     }
 
 </script>
-
+<div class="mainContent">
 <button onclick=best("now")>Best of all</button>
 <button onclick=best("lasthour")>Best last hour</button>
 <button onclick=best("lastday")>Best last day</button>
@@ -46,3 +46,4 @@ Best in class of: <?php echo "<select id='alumni' onchange=best('inalumni') name
 
 <br>
 <div id="txtHint"><b>Click on buttons for results.</b></div>
+</div>

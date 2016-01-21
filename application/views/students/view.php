@@ -8,7 +8,7 @@
 //var_dump($student);
 //var_dump($info);
 ?>
-
+<div class="mainContent">
 <table border="1">
         <tr>
             <th>First name </th>
@@ -36,3 +36,4 @@ foreach ($info as $item => $pt) {
 
 
 echo "</table>";
+echo "</div>";
