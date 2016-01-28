@@ -6,27 +6,28 @@
  * Time: 1:44
  */
 ?>
-<div class="mainContent">
-    <a href="./index.php?url=activities_student/add" class="addbutt">Add student activity</a>
+    <div class="mainContent">
+        <a href="./index.php?url=activities_student/add" class="addbutt">Add student activity</a>
 
-    <table border="1">
-        <tr>
-            <th> Student_id</th>
-            <th> Activity_id</th>
-            <th> Added at</th>
-
-        </tr>
-
+        <table border="1">
+            <tr>
+                <th> STUDENT</th>
+                <th> NUMBER</th>
+                <th> ACTIVITY</th>
+                <th> POINT</th>
+                <th> ADDED AT</th>
+            </tr>
 <?php
 
-if (isset($info)) {
-    foreach ($info as $key => $value) {
-        extract($value["Activities_student"]);
+if (isset($students)) {
+    foreach ($students as $key => $value) {
         echo "<tr>" .
-            "<td>" . $student_id . "</td>
-             <td>" . $activity_id . "</td>
-             <td>" . $created_at . "</td>
-        </tr>";
+                "<td>" . $value['student_id'] . "</td>
+                 <td>" . $value['f_number'] . "</td>
+                 <td>" . $value['activity_id'] . "</td>
+                 <td>" . $value['point'] . "</td>
+                 <td>" . $value['created_at'] . "</td>
+            </tr>";
     }
 }
 echo "</table>";

@@ -10,6 +10,7 @@ class Activities_studentController extends Controller
 {
     function add()
     {
+        try{
         $model = new Activities_student();
 
         $students = new Student();
@@ -39,12 +40,38 @@ class Activities_studentController extends Controller
             $this->set("title", "Error! Empty field!");
 
         }
+        }catch(Exception $e){
+
+        }
 
     }
 
     function index()
     {
-        $this->set('info', $this->loadModel()->selectAll());
+        $students = new Student();
+        $activities = new Activity();
+        $result = array();
+        $info =  $this->loadModel()->selectAll();
+        foreach ($info  as $key => $item) {
+            extract($item["Activities_student"]);
+
+            $st =   $students->select($student_id);
+            $st2 = array_shift($st);
+
+            $ac = $activities->select($activity_id);
+            $ac2 = array_shift($ac);
+
+            $arr = array(
+                'student_id' => $st2['first_name']." ".$st2['last_name'],
+                'f_number' => $st2['f_number'],
+                'activity_id' => $ac2['name'],
+                'point' => $ac2['point'],
+                'created_at' => $created_at,
+            );
+            array_push($result, $arr);
+        }
+
+        $this->set('students',$result);
     }
 
     public function loadModel()
