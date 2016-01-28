@@ -13,7 +13,7 @@ body {
   	-moz-background-size: cover;
   	-o-background-size: cover;
   	background-size: cover;
-  	font-family:'Playfair Display', serif;
+  	font-family: 'PT Sans', sans-serif;
 }
 #header {
 	display:block;
@@ -26,6 +26,11 @@ body {
 	border-bottom-left-radius:5px;
 	border-bottom-right-radius:5px;
 }
+#header:after {
+	display:block;
+	content:"";
+	clear:both;
+}
 div#mainWrapper {
 	width:1200px;
 	max-width:100%;
@@ -33,7 +38,7 @@ div#mainWrapper {
 	background:rgba(255,255,255,0.5);
 	box-shadow: -4px 0px 35px #888888;
 	height:100%;
-	min-height:1000px;
+	min-height:700px;
 }
 #mainWrapper h2 {
 	text-align:center;
@@ -51,6 +56,7 @@ div#mainWrapper {
 
 #menubar {
 	float:left;
+	max-width:80%;
 	margin-left:30px;
 	padding-top:40px;
 }
@@ -64,7 +70,6 @@ div#mainWrapper {
 	color:#fff;
 	font-size:16px;
 	text-decoration:none;
-	font-family: 'Playfair Display', serif;
 }
 .mainContent {
 	padding:30px;
@@ -74,30 +79,234 @@ table {
 	border-collapse:collapse;
 	margin:0 auto;
 	border-color:#fff;
+	margin-top:30px;
+	max-width:70%;
 }
 tbody { border-color:#fff;}
 table tr {
 	border-color:#fff;
 }
 table td, table th {
-	min-width:120px;
 	text-align:center;
 	border-color:#fff;
+	padding-left:15px;
+	padding-right:15px;
 }
 table th {
 	height:50px;
-	background:#297FB2;
+	background:#195577;
 	color:#fff;
 	font-size:12px;
-	letter-spacing:1px;
+	letter-spacing:0.5px;
+	text-transform:uppercase;
 }
 table td {
-	height:25px;
+	height:30px;
+	background:rgba(213,233,240,0.5);
+
+}
+td.firstname {
+	font-weight:bold;
+}
+td.firstname a {
+	color:#195577;
+	text-decoration:none;
+}
+td.firstname:hover {
+	background:#195577;
+}
+td.firstname:hover a {
+	color:#fff;
 }
 .addbutt {
-	background:#297FB2;
+	background:#195577;
 	padding:10px 20px;
 	border-radius:20px;
 	color:#fff;
 	text-decoration:none;
+	text-transform:uppercase;
+}
+.addbutt:hover {
+	background:#BABABA;
+	color:#444444;
+}
+.plus { font-size:20px;}
+.footer {
+	background:#195577;
+	color:#fff;
+	border-top:5px solid #333;
+}
+.foot-col {
+	width:32%;
+	display:inline-table;
+	min-height:150px;
+	text-align:center;
+}
+.foot-col a {
+	color:#fff;
+	text-transform:uppercase;
+	font-size:12px;
+	font-weight:300;
+	text-decoration:none;
+}
+.foot-col a:hover {
+	color:#E7F1F5;
+}
+.foot-col p {
+	font-size:16px;
+}
+.foot-col h3 {
+	text-align:center;
+}
+.foot-col ul {
+	padding:0;
+	margin:0;
+}
+.foot-nav {
+	display:block;
+	padding:0;
+	margin:0;
+}
+.foot-col.about {
+	font-size:16px;
+}
+.form-inp {
+	color:#195577;
+	font-style:italic;
+	font-weight:bold;
+	width:150px;
+	display:inline-block;
+}
+form {
+	width:330px;
+	margin:0 auto;
+	max-width:100%;
+	border:3px solid #195577;
+	border-radius:5px;
+	padding:20px;
+	background:#E6F0F4;
+	/*
+	background:rgba(25,85,119,0.3);
+	*/
+}
+form input, form select, select {
+	padding-top:5px;
+	padding-bottom:5px;
+	margin-top:5px;
+	margin-bottom:5px;
+	border:1px solid #195577;
+	text-indent:10px;
+	border-radius:5px;
+}
+form select, select {
+	text-indent:0;
+}
+form input[type="submit"] {
+	text-indent:0;
+	color:#fff;
+	width:150px;
+	font-weight:bold;
+	border-radius:15px;
+	background:#195577;
+	display:block;
+	margin:10px auto 0;
+	padding-top:7px;
+	padding-bottom:7px;
+}
+form input[type="submit"]:hover {
+	background:#444444;
+}
+button {
+	text-indent:0;
+	color:#fff;
+	width:150px;
+	font-weight:bold;
+	border-radius:15px;
+	background:#195577;
+	display:block;
+	margin:10px auto 0;
+	padding-top:7px;
+	padding-bottom:7px;
+	border:0 none;
+}
+button:hover {
+	background:#444;
+}
+.bestof {
+	display:block;
+	width:280px;
+	margin:20px auto 0;
+	max-width:100%;
+}
+#txtHint {
+	text-align:center;
+	padding-bottom:20px;
+}
+
+@media only screen and (max-width:1200px) {
+	#menubar {
+		padding-top:10px;
+		max-width:70%;
+	}
+	#menubar li {
+		padding-bottom:10px;
+	}
+}
+
+@media only screen and (max-width:900px) {
+	header#header {
+		height:200px;
+		padding:0;
+		margin:0;
+	}
+	#header a {
+		display:block;
+		text-align:center;
+		width:100%;
+	}
+	#header a:after {
+		content:"";
+		clear:both;
+		display:block;
+	}
+	#logo {
+		margin:0 auto;
+		width:200px;
+		display:block;
+		text-align:center;
+		float:none;
+	}
+	#menubar {
+		width:100% !important;
+		max-width:100%;
+		padding:0;
+		margin:0;
+		text-align:center;
+	}
+	#menubar ul {
+		padding:0;
+	}
+	#menubar li {
+		padding-top:0;
+		padding-left:5px;
+		padding-right:5px;
+		padding-bottom:7px;
+	}
+	.foot-col {
+		width:100%;
+	}
+	.foot-col:last-of-type {
+		padding-bottom:10px;
+	}
+}
+
+@media only screen and (max-width:500px) {
+	form {
+		box-sizing:border-box;
+	}
+	input, select {
+		width:160px;
+		display:block;
+		margin:0 auto;
+	}
 }

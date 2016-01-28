@@ -7,8 +7,10 @@
  */
  ?>
 <br>
+<div class="mainContent">
 <form action="index.php?url=category/add" method="post">
-    Name: <input type="text" name="category[name]"><br>
-    Parent ID: <input type="text" name="category[parent_id]"><br>
+    <span class="form-inp">Name:</span> <input type="text" name="category[name]"><br>
+    <span class="form-inp">Parent ID:</span> <input type="text" name="category[parent_id]"><br>
     <input type="submit" value="Submit">
 </form>
+</div>

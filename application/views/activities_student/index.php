@@ -7,7 +7,7 @@
  */
 ?>
     <div class="mainContent">
-        <a href="./index.php?url=activities_student/add" class="addbutt">Add student activity</a>
+        <a href="./index.php?url=activities_student/add" class="addbutt"><span class="plus">&#43;</span> student activity</a>
 
         <table border="1">
             <tr>

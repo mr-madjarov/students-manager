@@ -8,7 +8,7 @@
 ?>
 <div class="mainContent">
 <div class="butt">
-    <a href="./index.php?url=activity/add" class="addbutt">Add activity</a>
+    <a href="./index.php?url=activity/add" class="addbutt"><span class="plus">&#43;</span> activity</a>
 </div>
     <table border="1">
         <tr>

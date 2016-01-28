@@ -7,9 +7,7 @@
  */
 ?>
 <div class="mainContent">
-<div class="butt">
-    <a href="./index.php?url=category/add" class="addbutt">Add category</a>
-</div>
+    <a href="./index.php?url=category/add" class="addbutt"><span class="plus">&#43;</span> category</a>
     <table border="1">
         <tr>
             <th> Name</th>

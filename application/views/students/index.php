@@ -9,7 +9,7 @@
 <div class="mainContent">
 <h2><?php echo "Students Manager Index" ?></h2>
 
-<a  href="./index.php?url=students/add" class="addbutt">Add student</a>
+<a  href="./index.php?url=students/add" class="addbutt"><span class="plus">&#43;</span> student</a>
     <table border="1">
         <tr>
             <th>First name </th>
@@ -28,7 +28,7 @@
 foreach($students as $key => $value){
     extract($value["Student"]);
     echo "<tr>".
-            "<td> <a href='index.php?url=students/view/$id'>".$first_name."</a></td>
+            "<td class=\"firstname\"> <a href='index.php?url=students/view/$id'>".$first_name."</a></td>
              <td>".$last_name."</td>
              <td>".$f_number."</td>
              <td>".$subject."</td>

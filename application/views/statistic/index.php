@@ -32,6 +32,7 @@
 
 </script>
 <div class="mainContent">
+<div id="txtHint"><b>Click on buttons for results.</b></div>
 <button onclick=best("now")>Best of all</button>
 <button onclick=best("lasthour")>Best last hour</button>
 <button onclick=best("lastday")>Best last day</button>
@@ -39,11 +40,10 @@
 <button onclick=best("lastmonth")>Best last month</button>
 
 
-Best in class of: <?php echo "<select id='alumni' onchange=best('inalumni') name='id'>
+<div class="bestof"><span class="form-inp">Best in class of:</span> <?php echo "<select id='alumni' onchange=best('inalumni') name='id'>
                             <option>--Select class -- </option>";
                                 echo $selectAlumni;
-                                echo "</select>"; ?><br>
+                                echo "</select>"; ?></div><br>
 
 <br>
-<div id="txtHint"><b>Click on buttons for results.</b></div>
 </div>

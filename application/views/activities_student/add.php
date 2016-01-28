@@ -20,14 +20,17 @@ function listActivities($data)
 }
 ?>
 <br>
+
+<div class="mainContent">
 <form action="index.php?url=activities_student/add" method="post">
-    Student: <?php echo "<select name='info[student_id]'>
+    <span class="form-inp">Student:</span> <?php echo "<select name='info[student_id]'>
                             <option>--Select student -- </option>";
                             listStudents($getStudents);
                     echo "</select>"; ?><br>
-    Activity: <?php echo "<select name='info[activity_id]'>
+    <span class="form-inp">Activity:</span> <?php echo "<select name='info[activity_id]'>
                             <option>--Select activity -- </option>";
                             listActivities($getActivities);
                             echo "</select>"; ?><br>
     <input type="submit" value="Submit">
 </form>
+</div>
