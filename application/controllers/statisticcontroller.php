@@ -154,7 +154,11 @@ LIMIT 1");
     function bestInAlumni($id)
     {
         $this->doNotRenderHeader = 1;
+        if(isset($id) and $id != "--Select class --"){
         $this->bestIn('alumni', $id);
+        }else{
+            echo "Please, select class!";
+        }
     }
 
     /**
