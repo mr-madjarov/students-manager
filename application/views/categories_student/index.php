@@ -6,8 +6,10 @@
  * Time: 1:44
  */
 ?>
-<div class="mainContent">
+    <div class="mainContent">
+<?php if (isset($_SESSION['user'])) { ?>
     <a href="./index.php?url=categories_student/add" class="addbutt"><span class="plus">&#43;</span> category</a>
+<?php } ?>
     <table border="1">
         <tr>
             <th> Student_id</th>

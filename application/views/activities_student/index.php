@@ -7,22 +7,24 @@
  */
 ?>
     <div class="mainContent">
-        <a href="./index.php?url=activities_student/add" class="addbutt"><span class="plus">&#43;</span> student activity</a>
-
-        <table border="1">
-            <tr>
-                <th> STUDENT</th>
-                <th> NUMBER</th>
-                <th> ACTIVITY</th>
-                <th> POINT</th>
-                <th> ADDED AT</th>
-            </tr>
+<?php if (isset($_SESSION['user'])) { ?>
+    <a href="./index.php?url=activities_student/add" class="addbutt"><span class="plus">&#43;</span> student
+        activity</a>
+<?php } ?>
+    <table border="1">
+        <tr>
+            <th> STUDENT</th>
+            <th> NUMBER</th>
+            <th> ACTIVITY</th>
+            <th> POINT</th>
+            <th> ADDED AT</th>
+        </tr>
 <?php
 
 if (isset($students)) {
     foreach ($students as $key => $value) {
         echo "<tr>" .
-                "<td>" . $value['student_id'] . "</td>
+            "<td>" . $value['student_id'] . "</td>
                  <td>" . $value['f_number'] . "</td>
                  <td>" . $value['activity_id'] . "</td>
                  <td>" . $value['point'] . "</td>
