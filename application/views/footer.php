@@ -15,24 +15,22 @@
 	<div class="foot-col about">
     <h3>About us</h3>
     <p>
-    Анелия Ячева<br/>
+    Anelia Yacheva<br/>
     80849<br/>
-    КН, 4 курс<br/>
     <br/>
-    Юсуф Маджаров<br/>
+    Yusuf Madzharov<br/>
     80815<br/>
-    КН, 4 курс<br/>
+
     </p>
     </div>
     <div class="foot-col">
     <h3>Menu</h3>
     <ul>
-		<li class="foot-nav"><a href="./index.php?url=students">Students Information</a></li>
-		<li class="foot-nav"><a href="./index.php?url=activities_student">Student activities</a></li>
-		<li class="foot-nav"><a href="./index.php?url=statistic">Statistics</a></li>
-		<li class="foot-nav"><a href="./index.php?url=activity">Activity Legend</a></li>
-		<li class="foot-nav"><a href="./index.php?url=categories_student">Student categories</a></li>
-		<li class="foot-nav"><a href="./index.php?url=category">Categories</a></li>
+        <li class="foot-nav"><a href="./index.php?url=students">Students</a></li>
+        <li class="foot-nav"><a href="./index.php?url=activities_student">Activities</a></li>
+        <li class="foot-nav"><a href="./index.php?url=statistic">Statistics</a></li>
+        <li class="foot-nav"><a href="./index.php?url=activity">Tasks</a></li>
+        <li class="foot-nav"><a href="./index.php?url=category">Categories</a></li>
 	</ul>
     </div>
 </div>

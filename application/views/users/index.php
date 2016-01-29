@@ -14,11 +14,11 @@ if(isset($_SESSION['user'])){
 
     <form method="POST" action="index.php?url=users/login" >
         <?php if(@$_GET['url'] == "users/index/err"){?>
-            <span style="color: #f00">Login incorrect. Please try again </span><br>
+            <span style="color: #f00">Login incorrect. Please try again! </span><br>
         <?php } ?>
-        <label for="user">Username</label>
+        <label for="user" class="form-inp">Username</label>
         <input type="text" name="username" id="user"><br>
-        <label for="pass">Password</label>
+        <label for="pass" class="form-inp">Password</label>
         <input type="password" name="password" id="pass"><br>
         <input type="submit" value="Submit">
     </form>

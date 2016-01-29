@@ -47,18 +47,33 @@ div#mainWrapper {
 	width:200px;
 	height:100px;
 	float:left;
+	background-image: url(../img/logo.png);
 }
 
 #header-title {
 	float:left;
 	margin-left:30px;
 }
-
+#header-welcome {
+	width:50%;
+	float:right;
+	text-align:right;
+	color: #fff;
+	font-weight: bold;
+}
+#header-welcome a {
+	padding:5px 10px;
+	border-radius:5px;
+	margin-left:20px;
+	color:#fff;
+	text-decoration:none;
+	background:#297FB2;
+}
 #menubar {
-	float:left;
+	float:right;
 	max-width:80%;
 	margin-left:30px;
-	padding-top:40px;
+	padding-top:20px;
 }
 #menubar li {
 	display:inline-block;
@@ -69,7 +84,11 @@ div#mainWrapper {
 #menubar li a {
 	color:#fff;
 	font-size:16px;
+	font-weight:bold;
 	text-decoration:none;
+}
+#menubar li a:hover {
+	color:#65BEF2;
 }
 .mainContent {
 	padding:30px;
@@ -135,6 +154,7 @@ td.firstname:hover a {
 	background:#195577;
 	color:#fff;
 	border-top:5px solid #333;
+	margin-top:50px;
 }
 .foot-col {
 	width:32%;
@@ -241,6 +261,18 @@ button:hover {
 #txtHint {
 	text-align:center;
 	padding-bottom:20px;
+	width:49%;
+	display:block;
+	float:right;
+}
+#buttonWrapper {
+	width:49%;
+	display:inline-block;
+}
+#txtHint:after, #buttonWrapper:after, #mainContent:after,#mainWrapper:after {
+	content:"";
+	display:block;
+	clear:both;
 }
 
 @media only screen and (max-width:1200px) {
@@ -255,7 +287,7 @@ button:hover {
 
 @media only screen and (max-width:900px) {
 	header#header {
-		height:200px;
+		height:220px;
 		padding:0;
 		margin:0;
 	}
@@ -297,6 +329,28 @@ button:hover {
 	}
 	.foot-col:last-of-type {
 		padding-bottom:10px;
+	}
+	#header-welcome {
+		float:none;
+		margin:0 auto;
+		width:170px;
+		text-align:center;
+	}
+	#header-welcome span {
+		font-size:20px;
+		font-weight:normal;
+	}
+	#header-welcome a {
+		margin-left:-10px;
+	}
+	#txtHint {
+		width:100%;
+		display:block;
+		float:none;
+	}
+	#buttonWrapper {
+		width:100%;
+		display:block;
 	}
 }
 
