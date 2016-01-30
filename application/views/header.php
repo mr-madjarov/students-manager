@@ -5,7 +5,7 @@
  * Date: 10.1.2016 г.
  * Time: 0:57
  */
-
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@
         <a href="./index.php"><div id="logo"></div></a>
         <div id="header-welcome">
             <?php
-            session_start();
+
             if (isset($_SESSION['user'])) {
                 echo "<span>Welcome,  " . $_SESSION['user']->get_username() . "!</span>  ";
                 echo "<a href=\"./index.php?url=users/logout\">Logout</a>";
