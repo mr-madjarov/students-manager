@@ -8,6 +8,11 @@
  */
 class StudentsController extends Controller
 {
+    function beforeAction()
+    {
+
+    }
+
     function add()
     {
         $model = new Student();
@@ -24,7 +29,7 @@ class StudentsController extends Controller
             $group = $student['group'];
             $flow = $student['flow'];
             $alumni = $student['alumni'];
-            $subject  = $student['subject'];
+            $subject = $student['subject'];
 
             $model->first_name = $first_name;
             $model->last_name = $last_name;
@@ -50,13 +55,14 @@ class StudentsController extends Controller
         $this->set('students', $this->loadModel()->selectAll());
     }
 
-    function view($id){
+    function view($id)
+    {
 
         $model = new Student();
         $act = new Activities_student();
         $student = $model->select($id);
 
-        $act->where("id",$id);
+        $act->where("id", $id);
 
 
         $activity = $act->query("SELECT point from activitys
@@ -72,5 +78,10 @@ class StudentsController extends Controller
         $model = new $this->_model;
 
         return $model;
+    }
+
+    function afterAction()
+    {
+
     }
 }

@@ -106,7 +106,7 @@ table tr {
 	border-color:#fff;
 }
 table td, table th {
-	text-align:center;
+	text-align:left;
 	border-color:#fff;
 	padding-left:15px;
 	padding-right:15px;

@@ -8,6 +8,10 @@
  */
 class Categories_studentController extends Controller
 {
+    function beforeAction()
+    {
+
+    }
     function add()
     {
         $model = new Categories_student();
@@ -41,6 +45,10 @@ class Categories_studentController extends Controller
         $model = new $this->_model;
 
         return $model;
+    }
+    function afterAction()
+    {
+
     }
 
 

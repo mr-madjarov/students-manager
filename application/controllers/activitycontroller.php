@@ -8,6 +8,10 @@
  */
 class ActivityController extends Controller
 {
+    function beforeAction()
+    {
+
+    }
     function add()
     {
         $model = new Activity();
@@ -43,5 +47,9 @@ class ActivityController extends Controller
         return $model;
     }
 
+    function afterAction()
+    {
+
+    }
 
 }

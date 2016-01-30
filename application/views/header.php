@@ -26,7 +26,7 @@ session_start();
             <?php
 
             if (isset($_SESSION['user'])) {
-                echo "<span>Welcome,  " . $_SESSION['user']->get_username() . "!</span>  ";
+                echo "<span>Welcome,  " . $_SESSION['user']->getUsername() . "!</span>  ";
                 echo "<a href=\"./index.php?url=users/logout\">Logout</a>";
             }else{
                 echo "<a href=\"./index.php?url=users\">Login</a>";
@@ -41,6 +41,9 @@ session_start();
                 <li><a href="./index.php?url=statistic">Statistics</a></li>
                 <li><a href="./index.php?url=activity">Tasks</a></li>
                 <li><a href="./index.php?url=category">Categories</a></li>
+                <?php if (isset($_SESSION['user'])) {?>
+                <li><a href="./index.php?url=users/view">Users</a></li>
+                <?php } ?>
             </ul>
         </div>
     </header>

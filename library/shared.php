@@ -86,7 +86,9 @@ function callHook()
             $dispatch = new $controller($model, $controllerName, $action);
         }
         if ((int)method_exists($controller, $action)) {
-            call_user_func_array(array($dispatch, $action), $queryString);
+            call_user_func_array(array($dispatch,"beforeAction"),$queryString);
+            call_user_func_array(array($dispatch,$action),$queryString);
+            call_user_func_array(array($dispatch,"afterAction"),$queryString);
         } else {
             /* Error Generation Code Here */
             // var_dump("Error calback");exit;

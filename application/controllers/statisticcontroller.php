@@ -8,6 +8,10 @@
  */
 class StatisticController extends Controller
 {
+    function beforeAction()
+    {
+
+    }
     function index()
     {
         $model = new Statistic();
@@ -261,5 +265,9 @@ ORDER BY point DESC");
 
         }
         return $sum / $i;
+    }
+    function afterAction()
+    {
+
     }
 }

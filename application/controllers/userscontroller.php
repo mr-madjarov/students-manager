@@ -8,14 +8,51 @@
  */
 class UsersController extends Controller
 {
+    function beforeAction()
+    {
+        if (isset($_POST['password']) and !isset($_POST['login'])) {
+
+            $_POST['password'] = $this->hash($_POST['password']);
+            var_dump($_POST['password']);
+        }
+
+    }
+
     function index()
     {
 
 
     }
 
+    function view()
+    {
+        $model = new User();
+        $list = $model->selectAll();
+
+        $this->set('users', $list);
+    }
+
+    function add()
+    {
+        if (isset($_POST['username']) and isset($_POST['password'])) {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            var_dump($password);
+            $model = new User();
+            $model->setUsername($username);
+            $model->setPassword($password);
+            if ($model->save()) {
+                header('Location: ' . 'index.php?url=users/view');
+                die();
+            }
+        } else {
+            header("Location:index.php?url=users/adddialog/err");
+        }
+
+    }
+
     function login()
-    {   var_dump($_POST);
+    {
         if (isset($_POST['username']) and isset($_POST['password'])) {
             $username = $_POST['username'];
             $password = $_POST['password'];
@@ -34,7 +71,7 @@ class UsersController extends Controller
             } else {
                 header("Location:index.php?url=users/index/err");
             }
-        }else{
+        } else {
             header("Location:index.php?url=users/index");
         }
     }
@@ -42,8 +79,14 @@ class UsersController extends Controller
     static function authenticate($u, $p)
     {
         $authenticate = false;
-        if ($u == 'admin' && $p == 'admin') {
-            $authenticate = true;
+        $model = new User();
+        $user = $model->query("SELECT password FROM users WHERE username = '$u'");
+        if ($user) {
+            $password = $user[0]['User']['password'];
+
+            if (password_verify($p, $password)) {
+                $authenticate = true;
+            }
         }
         return $authenticate;
     }
@@ -61,5 +104,15 @@ class UsersController extends Controller
         $model = new $this->_model;
 
         return $model;
+    }
+
+    private function hash($p)
+    {
+        return password_hash($p, PASSWORD_DEFAULT);
+    }
+
+    function afterAction()
+    {
+
     }
 }

@@ -8,6 +8,10 @@
  */
 class Activities_studentController extends Controller
 {
+    function beforeAction()
+    {
+
+    }
     function add()
     {
         try{
@@ -79,6 +83,10 @@ class Activities_studentController extends Controller
         $model = new $this->_model;
 
         return $model;
+    }
+    function afterAction()
+    {
+
     }
 
 
